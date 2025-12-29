@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" class="light" style="color-scheme: light only !important; background-color: #ffffff !important;">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light only" />
+    <meta name="supported-color-schemes" content="light only" />
+    <title>Dr. Gaurav Jaswal | Radiation Oncology & AI Healthcare</title>
+    <script>
+      // Force light theme immediately before any rendering
+      (function() {
+        var html = document.documentElement;
+        html.classList.remove('dark');
+        html.classList.add('light');
+        html.style.colorScheme = 'light only';
+        html.style.backgroundColor = '#ffffff';
+        document.body && (document.body.style.backgroundColor = '#ffffff');
+        localStorage.setItem('theme', 'light');
+        localStorage.setItem('vite-ui-theme', 'light');
+        // Override matchMedia for dark mode detection
+        try {
+          Object.defineProperty(window, 'matchMedia', {
+            writable: true,
+            value: function(query) {
+              if (query === '(prefers-color-scheme: dark)') {
+                return { matches: false, media: query, onchange: null, addListener: function(){}, removeListener: function(){}, addEventListener: function(){}, removeEventListener: function(){}, dispatchEvent: function(){} };
+              }
+              return window.matchMedia.original ? window.matchMedia.original(query) : { matches: false, media: query, onchange: null, addListener: function(){}, removeListener: function(){}, addEventListener: function(){}, removeEventListener: function(){}, dispatchEvent: function(){} };
+            }
+          });
+        } catch(e) {}
+      })();
+    </script>
+    <style>
+      /* Force light theme - override everything */
+      *, *::before, *::after {
+        color-scheme: light only !important;
+      }
+      html, body, #root {
+        background-color: #ffffff !important;
+        color: #1a1a1a !important;
+        color-scheme: light only !important;
+      }
+      html.dark, body.dark, .dark, [data-theme="dark"] {
+        background-color: #ffffff !important;
+        color: #1a1a1a !important;
+        color-scheme: light only !important;
+      }
+      @media (prefers-color-scheme: dark) {
+        html, body, #root {
+          background-color: #ffffff !important;
+          color: #1a1a1a !important;
+          color-scheme: light only !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="light" style="background-color: #ffffff !important; color: #1a1a1a !important;">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

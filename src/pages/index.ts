@@ -1,0 +1,6 @@
+export { default as HomePage } from "./HomePage"
+export { default as AboutPage } from "./AboutPage"
+export { default as ConsultationPage } from "./ConsultationPage"
+export { default as BlogPage } from "./BlogPage"
+export { default as AiProductsPage } from "./AiProductsPage"
+export { default as ContactPage } from "./ContactPage"
