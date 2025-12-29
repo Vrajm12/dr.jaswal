@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { ArrowLeft, Calendar, Clock, User, Tag, Share2, Facebook, Twitter, Linkedin, Mail, BookOpen, ChevronUp, Heart, Bookmark, Copy, Check } from "lucide-react"
-import ReactMarkdown from 'react-markdown'
+// import ReactMarkdown, { type ReactMarkdownProps } from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { BlogArticle, getRelatedArticles } from "../../lib/blog-data"
 
@@ -220,18 +220,18 @@ const BlogArticleView = ({ article, allArticles, onBack }: BlogArticleViewProps)
         <article 
           className="prose prose-lg max-w-none article-content"
         >
-          <ReactMarkdown 
+          {/* <ReactMarkdown 
             remarkPlugins={[remarkGfm]}
             // Explicitly define how paragraphs and list items are rendered to ensure proper spacing.
             // This helps if default prose styles are insufficient or overridden, or if Markdown
             // input sometimes generates elements without expected margins.
             components={{
               p: (props) => <p className="mb-2" {...props} />,
-              ul: ({node, ...props}) => <ul className="mb-4 pl-5 list-disc" {...props} />,
-              ol: ({node, ...props}) => <ol className="mb-4 pl-5 list-decimal" {...props} />,
-              li: ({node, ...props}) => <li className="mb-1" {...props} />,
+              ul: (props) => <ul className="mb-4 pl-5 list-disc" {...props} />,
+              ol: (props) => <ol className="mb-4 pl-5 list-decimal" {...props} />,
+              li: (props) => <li className="mb-1" {...props} />,
             }}
-          >{article.content}</ReactMarkdown>
+          >{article.content}</ReactMarkdown> */}
         </article>
 
         {/* Tags Section */}
