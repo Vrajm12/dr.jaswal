@@ -21,7 +21,7 @@ const allowedOrigins = [
   'https://dr-gaurav-jaswal.vercel.app',
   'https://www.drgauravjaswal.com',
   'https://drgauravjaswal.com',
-  'https://dr-jaswal.vercel.app',
+  'https://dr-gaurav-jaswal-website.vercel.app/',
 
   // Local development
   'http://localhost:3000',
