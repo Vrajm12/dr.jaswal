@@ -42,7 +42,7 @@ const AdminBlogManager = ({ images, blogs, setBlogs }: Props) => {
 
   /* ================= AUTH CHECK ================= */
   useEffect(() => {
-    fetch("http://localhost:3001/api/auth/status", {
+    fetch(" /api/auth/status", {
       credentials: "include",
     })
       .then((res) => res.json())
@@ -92,8 +92,8 @@ const AdminBlogManager = ({ images, blogs, setBlogs }: Props) => {
     }
 
     const url = editingId
-      ? `http://localhost:3001/api/blogs/${editingId}`
-      : `http://localhost:3001/api/blogs`;
+      ? ` /api/blogs/${editingId}`
+      : ` /api/blogs`;
 
     const method = editingId ? "PUT" : "POST";
 
@@ -134,7 +134,7 @@ const AdminBlogManager = ({ images, blogs, setBlogs }: Props) => {
   const handleDelete = async (id: string) => {
     if (!confirm("Delete this blog?")) return;
 
-    await fetch(`http://localhost:3001/api/blogs/${id}`, {
+    await fetch(` /api/blogs/${id}`, {
       method: "DELETE",
       credentials: "include",
     });
