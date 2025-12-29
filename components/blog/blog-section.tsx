@@ -18,7 +18,7 @@ export default function BlogSection() {
   const categories = ["All", "General", "AI", "Health", "Technology", "Education", "Prevention", "Treatment", "Research"]
 
   useEffect(() => {
-    fetch(" /api/blogs")
+    fetch("http://localhost:3001/api/blogs")
       .then(res => res.json())
       .then(apiBlogs => {
         const combinedArticles = [...blogArticles];

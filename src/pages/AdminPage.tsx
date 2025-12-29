@@ -17,7 +17,7 @@ const AdminPage = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   const fetchBlogs = () => {
-    fetch(" /api/blogs")
+    fetch("http://localhost:3001/api/blogs")
       .then(res => res.json())
       .then(data => setBlogs(data))
       .catch(err => console.error("Error fetching blogs:", err))
@@ -25,7 +25,7 @@ const AdminPage = () => {
 
   useEffect(() => {
     // Check auth status
-    fetch(" /api/auth/status", { credentials: 'include' })
+    fetch("http://localhost:3001/api/auth/status", { credentials: 'include' })
       .then(res => res.json())
       .then(data => {
         setIsAuthenticated(data.isAuthenticated)
@@ -46,7 +46,7 @@ const AdminPage = () => {
   }, [])
 
   const handleLogin = () => {
-    fetch(" /api/login", {
+    fetch("http://localhost:3001/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ password: passwordInput }),
@@ -71,7 +71,7 @@ const AdminPage = () => {
   }
 
   const handleLogout = () => {
-    fetch(" /api/logout", { method: "POST", credentials: 'include' })
+    fetch("http://localhost:3001/api/logout", { method: "POST", credentials: 'include' })
       .then(() => {
         setIsAuthenticated(false)
       })
