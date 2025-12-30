@@ -1,7 +1,7 @@
 "use client"
 
-import { useInView } from "@/components/home/use-in-view"
-import { CounterAnimation } from "@/components/counter-animation"
+import { useInView } from "../../components/home/use-in-view"
+import { CounterAnimation } from "../../components/counter-animation"
 import { Award, Users, TrendingUp, Clock, Heart } from "lucide-react"
 
 const StatsCards = () => {

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { apiFetch } from "@/lib/api";
 import { useInView } from "../../components/home/use-in-view"
 import { Search, Zap, Clock, Calendar } from "lucide-react"
 import { blogArticles, BlogArticle } from "../../lib/blog-data"
@@ -18,7 +19,7 @@ export default function BlogSection() {
   const categories = ["All", "General", "AI", "Health", "Technology", "Education", "Prevention", "Treatment", "Research"]
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/blogs")
+    apiFetch("/api/blogs")
       .then(res => res.json())
       .then(apiBlogs => {
         const combinedArticles = [...blogArticles];

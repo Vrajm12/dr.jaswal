@@ -1,6 +1,6 @@
 "use client"
 
-import { useInView } from "@/components/home/use-in-view"
+import { useInView } from "../../components/home/use-in-view"
 import { Eye, Target } from "lucide-react"
 
 const MissionVision = () => {

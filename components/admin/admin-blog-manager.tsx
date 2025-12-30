@@ -1,3 +1,4 @@
+import { apiFetch } from "@/lib/api";
 import React, { useEffect, useState } from "react";
 import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
@@ -42,7 +43,7 @@ const AdminBlogManager = ({ images, blogs, setBlogs }: Props) => {
 
   /* ================= AUTH CHECK ================= */
   useEffect(() => {
-    fetch(" /api/auth/status", {
+    apiFetch("/api/auth/status", {
       credentials: "include",
     })
       .then((res) => res.json())
@@ -92,12 +93,12 @@ const AdminBlogManager = ({ images, blogs, setBlogs }: Props) => {
     }
 
     const url = editingId
-      ? ` /api/blogs/${editingId}`
-      : ` /api/blogs`;
+      ? `/api/blogs/${editingId}`
+      : `/api/blogs`;
 
     const method = editingId ? "PUT" : "POST";
 
-    const res = await fetch(url, {
+    const res = await apiFetch(url, {
       method,
       credentials: "include",
       headers: { "Content-Type": "application/json" },
@@ -134,7 +135,7 @@ const AdminBlogManager = ({ images, blogs, setBlogs }: Props) => {
   const handleDelete = async (id: string) => {
     if (!confirm("Delete this blog?")) return;
 
-    await fetch(` /api/blogs/${id}`, {
+    await apiFetch(`/api/blogs/${id}`, {
       method: "DELETE",
       credentials: "include",
     });

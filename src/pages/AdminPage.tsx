@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { Lock, LogOut, Eye, EyeOff } from "lucide-react"
 import { Button } from "../../components/ui/button"
 import { Input } from "../../components/ui/input"
+import { apiFetch } from "../../src/lib/api";
 import AdminBlogManager from "../../components/admin/admin-blog-manager"
 import AdminImageManager from "../../components/admin/admin-image-manager"
 
@@ -17,7 +18,7 @@ const AdminPage = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   const fetchBlogs = () => {
-    fetch("http://localhost:3001/api/blogs")
+    apiFetch("/api/blogs")
       .then(res => res.json())
       .then(data => setBlogs(data))
       .catch(err => console.error("Error fetching blogs:", err))
@@ -25,7 +26,7 @@ const AdminPage = () => {
 
   useEffect(() => {
     // Check auth status
-    fetch("http://localhost:3001/api/auth/status", { credentials: 'include' })
+    apiFetch("/api/auth/status", { credentials: 'include' })
       .then(res => res.json())
       .then(data => {
         setIsAuthenticated(data.isAuthenticated)
@@ -46,7 +47,7 @@ const AdminPage = () => {
   }, [])
 
   const handleLogin = () => {
-    fetch("http://localhost:3001/api/login", {
+    apiFetch("/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ password: passwordInput }),
@@ -71,7 +72,7 @@ const AdminPage = () => {
   }
 
   const handleLogout = () => {
-    fetch("http://localhost:3001/api/logout", { method: "POST", credentials: 'include' })
+    apiFetch("/api/logout", { method: "POST", credentials: 'include' })
       .then(() => {
         setIsAuthenticated(false)
       })

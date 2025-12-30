@@ -1,6 +1,6 @@
 "use client"
 
-import { useInView } from "@/components/home/use-in-view"
+import { useInView } from "../../components/home/use-in-view"
 import { GraduationCap, Award, BadgeCheck, Stethoscope, Brain, Sparkles } from "lucide-react"
 
 const EducationSection = () => {

@@ -1,9 +1,9 @@
 "use client"
 
-import { useInView } from "@/components/home/use-in-view"
+import { useInView } from "../../components/home/use-in-view"
 import { Link } from "react-router-dom"
 import { TrendingUp } from "lucide-react"
-import { CounterAnimation } from "@/components/counter-animation"
+import { CounterAnimation } from "../../components/counter-animation"
 
 const AIHeroSection = () => {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true })

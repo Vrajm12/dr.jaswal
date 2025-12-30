@@ -1,6 +1,6 @@
 "use client"
 
-import { useInView } from "@/components/home/use-in-view"
+import { useInView } from "../../components/home/use-in-view"
 import { Link } from "react-router-dom"
 import { CheckCircle } from "lucide-react"
 

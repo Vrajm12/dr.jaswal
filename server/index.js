@@ -18,10 +18,9 @@ const isProd = process.env.NODE_ENV === 'production';
 
 const allowedOrigins = [
   // Production
-  'https://dr-gaurav-jaswal.vercel.app',
   'https://www.drgauravjaswal.com',
   'https://drgauravjaswal.com',
-  'https://dr-gaurav-jaswal-website.vercel.app/',
+  'https://dr-gaurav-jaswal-website.vercel.app',
 
   // Local development
   'http://localhost:3000',
@@ -30,16 +29,17 @@ const allowedOrigins = [
 ];
 
 app.use(cors({
-  origin: function (origin, callback) {
-    // Allow server-to-server, Postman, n8n
+  origin(origin, callback) {
+    // Allow Postman / server-to-server
     if (!origin) return callback(null, true);
 
     if (allowedOrigins.includes(origin)) {
       return callback(null, true);
     }
 
-    console.error('❌ Blocked by CORS:', origin);
-    return callback(new Error('CORS not allowed'));
+    console.error('❌ CORS blocked:', origin);
+    // IMPORTANT: do NOT throw hard error
+    return callback(null, false);
   },
   credentials: true,
 }));
@@ -49,17 +49,23 @@ app.use(cookieParser());
 /* =======================
    SESSION CONFIG
    ======================= */
+// REQUIRED when behind Vercel / Render / any proxy
+app.set('trust proxy', 1);
+
 app.use(session({
   name: 'admin.sid',
   secret: process.env.SESSION_SECRET || 'dev-secret',
   resave: false,
   saveUninitialized: false,
+  proxy: true, // 🔴 REQUIRED
   cookie: {
     httpOnly: true,
-    secure: isProd,                 // true in production (HTTPS)
-    sameSite: isProd ? 'none' : 'lax',
+    secure: process.env.NODE_ENV === 'production', // HTTPS only in prod
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+    maxAge: 1000 * 60 * 60 * 24, // 1 day
   },
 }));
+
 
 /* =======================
    MONGODB

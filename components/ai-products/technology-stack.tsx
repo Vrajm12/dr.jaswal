@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { useInView } from "@/components/home/use-in-view"
+import { useInView } from "../../components/home/use-in-view"
 import { Zap, Eye, TrendingUp, Shield, ChevronLeft, ChevronRight } from "lucide-react"
 
 const TechnologyStack = () => {

@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState } from "react"
-import { useInView } from "@/components/home/use-in-view"
+import { useInView } from "../../components/home/use-in-view"
 import { Phone, Mail, AlertCircle } from "lucide-react"
 
 const ConsultationForm = () => {

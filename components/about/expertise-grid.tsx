@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { useInView } from "@/components/home/use-in-view"
+import { useInView } from "../../components/home/use-in-view"
 import { Heart, Brain, Zap, BookOpen, Microscope, ChevronLeft, ChevronRight } from "lucide-react"
 
 const ExpertiseGrid = () => {

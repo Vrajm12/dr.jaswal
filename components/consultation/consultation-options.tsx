@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
-import { useInView } from "@/components/home/use-in-view"
+import { useInView } from "../../components/home/use-in-view"
 import { Video, Calendar, AlertCircle, Share2, Phone, Mail, Loader2 } from "lucide-react"
 
 const ConsultationOptions = () => {

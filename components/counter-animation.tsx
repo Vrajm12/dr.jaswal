@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useInView } from "@/components/home/use-in-view"
+import { useInView } from "../components/home/use-in-view"
 
 interface CounterAnimationProps {
   endValue: number
