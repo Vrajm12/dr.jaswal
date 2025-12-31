@@ -20,8 +20,8 @@ export default function BlogSection() {
 
   useEffect(() => {
     apiFetch("/api/blogs")
-      .then(res => res.json())
-      .then(apiBlogs => {
+      .then((res: any) => res.json())
+      .then((apiBlogs: any) => {
         const combinedArticles = [...blogArticles];
         apiBlogs.forEach((apiBlog: any) => {
           if (!combinedArticles.some(article => article.id === apiBlog._id)) {
@@ -42,7 +42,7 @@ export default function BlogSection() {
         });
         setAllArticles(combinedArticles);
       })
-      .catch(err => {
+      .catch((err: any) => {
         console.error("Error fetching blogs:", err)
         setAllArticles(blogArticles);
       });

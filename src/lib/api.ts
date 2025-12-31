@@ -1,6 +1,6 @@
 const API_BASE =
   import.meta.env.MODE === 'production'
-    ? import.meta.env.VITE_API_URL
+    ? '' // Same domain in production (Vercel serverless)
     : 'http://localhost:3001';
 
 export async function apiFetch(

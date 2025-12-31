@@ -22,9 +22,10 @@
       "vite/client"
     ],
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["src/*"],
+      "@/components/*": ["components/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/lib/*": ["lib/*", "src/lib/*"]
     }
   },
   "include": [

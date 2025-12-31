@@ -46,8 +46,8 @@ const AdminBlogManager = ({ images, blogs, setBlogs }: Props) => {
     apiFetch("/api/auth/status", {
       credentials: "include",
     })
-      .then((res) => res.json())
-      .then((data) => {
+      .then((res: any) => res.json())
+      .then((data: any) => {
         if (!data.isAuthenticated) {
           window.location.href = "/login";
         } else {
